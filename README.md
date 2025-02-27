@@ -49,7 +49,7 @@ A movie searching application built with React, TailwindCSS, React Router, and T
 
 - 🔍 Enter a movie title in the search bar.
 - 🎬 Click on a movie to view more details.
-- 🛤 Navigate through different pages using React Router.
+- 🛤 Navigate through Home and Favorites page using React Router.
 
 ## 🌍 Deployment
 
@@ -68,7 +68,3 @@ This project is licensed under the MIT License. 📃
 ## 🤝 Contributing
 
 Contributions are welcome! Feel free to open an issue or submit a pull request. 🚀
-
-## 📧 Contact
-
-For any inquiries, reach out via [your contact info]. 📩
