@@ -4,7 +4,7 @@ import "/src/index.css";
 
 function Navbar() {
   const favoritesTitle = () => {
-    document.title = "Movie Searcher | Favorites";
+    document.title = "Favorites | Movie Searcher";
   };
 
   const homeTitle = () => {
@@ -13,7 +13,7 @@ function Navbar() {
 
   return (
     <div>
-      <nav className="flex justify-center space-x-96 items-center bg-neutral-800 h-16">
+      <nav className="flex justify-center gap-[800px] items-center bg-neutral-800 h-16">
         <div>
           <Link
             onClick={homeTitle}
@@ -28,12 +28,16 @@ function Navbar() {
         </div>
         <ul className="flex gap-5 text-sky-400 text-xl">
           <li>
-            <Link onClick={homeTitle} className="" to="/">
+            <Link onClick={homeTitle} className="hover:underline" to="/">
               Home
             </Link>
           </li>
           <li>
-            <Link onClick={favoritesTitle} to="/favorites">
+            <Link
+              onClick={favoritesTitle}
+              className="hover:underline"
+              to="/favorites"
+            >
               Favorites
             </Link>
           </li>
