@@ -9,7 +9,6 @@ function MovieCard({ movie }) {
   function setFavorite() {
     setLiked((prev) => !prev);
   }
-
   return (
     <div
       className="bg-neutral-800 rounded-xl w-96 flex flex-col p-5 hover:bg-neutral-900 relative"
@@ -25,12 +24,12 @@ function MovieCard({ movie }) {
         (isLiked ? (
           <FaHeart
             onClick={setFavorite}
-            className="absolute bottom-20 right-5 m-5 text-2xl text-red-700"
+            className="absolute bottom-20 right-5 m-5 text-2xl text-red-700 transition-all duration-300 transform hover:scale-110"
           />
         ) : (
           <FaRegHeart
             onClick={setFavorite}
-            className="absolute bottom-20 right-5 m-5 text-2xl text-sky-400"
+            className="absolute bottom-20 right-5 m-5 text-2xl text-sky-400 transition-all duration-300 transform hover:scale-110"
           />
         ))}
       <div className="text-sky-400">
