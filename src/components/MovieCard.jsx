@@ -11,7 +11,7 @@ function MovieCard({ movie }) {
   }
   return (
     <div
-      className="bg-neutral-800 rounded-xl w-96 flex flex-col p-5 hover:bg-neutral-900 relative"
+      className="bg-neutral-800 rounded-xl w-72 flex flex-col p-10 hover:bg-neutral-900 transform hover:scale-105 transition-transform duration-200 relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -24,17 +24,17 @@ function MovieCard({ movie }) {
         (isLiked ? (
           <FaHeart
             onClick={setFavorite}
-            className="absolute bottom-20 right-5 m-5 text-2xl text-red-700 transition-all duration-300 transform hover:scale-110"
+            className="absolute bottom-20 right-8 m-5 text-2xl text-red-500 transition-all duration-300 transform hover:scale-110"
           />
         ) : (
           <FaRegHeart
             onClick={setFavorite}
-            className="absolute bottom-20 right-5 m-5 text-2xl text-sky-400 transition-all duration-300 transform hover:scale-110"
+            className="absolute bottom-20 right-8 m-5 text-2xl text-sky-400 transition-all duration-300 transform hover:scale-110"
           />
         ))}
       <div className="text-sky-400">
-        <h1>{movie.title}</h1>
-        <p>{movie.release_date}</p>
+        <h1 className="text-xs">{movie.title}</h1>
+        <p className="text-sm">{movie.release_date}</p>
       </div>
     </div>
   );

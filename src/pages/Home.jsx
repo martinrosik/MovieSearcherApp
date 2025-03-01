@@ -13,8 +13,6 @@ function Home() {
   const [loading, setLoading] = useState(true);
   const [searchDescription, setSearchDescription] = useState(true);
 
-  const currentYear = new Date().getFullYear();
-
   useEffect(() => {
     const loadPopularMovies = async () => {
       try {
@@ -50,14 +48,14 @@ function Home() {
       )}
       {searchDescription ? (
         <h1 className="flex justify-center items-center mt-28 mb-24 text-5xl text-sky-400">
-          Popular movies in {currentYear}! 🤩
+          Check out the latest trending movies! 🤩
         </h1>
       ) : (
         <h1 className="flex justify-center items-center mt-28 mb-24 text-5xl text-sky-400">
-          Searched movies:
+          Movies you’ve searched for:
         </h1>
       )}
-      <div className="grid grid-cols-3 justify-center items-center ml-20 gap-5 mt-10">
+      <div className="grid grid-cols-4 justify-center items-center ml-12 gap-10 mt-10">
         {movies.length > 0
           ? movies.map((movie) => <MovieCard movie={movie} key={movie.id} />)
           : !loading &&
