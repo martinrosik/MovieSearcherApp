@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
-function Searcher({ movie }) {
+function Searcher({ movie, setMovies, setSearchDescription }) {
   const [result, setResult] = useState("");
 
   const handleSearch = (e) => {
     e.preventDefault();
+    const searchedMovie = event.target.value;
+    setResult(searchedMovie);
   };
 
   const handleEnterSearch = (e) => {
