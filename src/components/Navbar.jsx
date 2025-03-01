@@ -1,22 +1,24 @@
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import { BiSolidCameraMovie } from "react-icons/bi";
+import { useEffect } from "react";
 import "/src/index.css";
 
 function Navbar() {
-  const favoritesTitle = () => {
-    document.title = "Favorites | Movie Searcher";
-  };
+  const location = useLocation();
 
-  const homeTitle = () => {
-    document.title = "Movie Searcher";
-  };
+  useEffect(() => {
+    if (location.pathname === "/favorites") {
+      document.title = "Favorites | Movie Searcher";
+    } else {
+      document.title = "Movie Searcher";
+    }
+  }, [location.pathname]);
 
   return (
     <div>
       <nav className="flex justify-center gap-[800px] items-center bg-neutral-800 h-16">
         <div>
           <Link
-            onClick={homeTitle}
             to="/"
             className="flex flex-row gap-3 justify-center items-center"
           >
@@ -28,13 +30,12 @@ function Navbar() {
         </div>
         <ul className="flex gap-5 text-sky-400 text-xl">
           <li>
-            <Link onClick={homeTitle} className="hover:underline" to="/">
+            <Link className="hover:underline" to="/">
               Home
             </Link>
           </li>
           <li>
             <Link
-              onClick={favoritesTitle}
               className="hover:underline"
               to="/favorites"
             >
