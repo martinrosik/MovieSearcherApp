@@ -60,7 +60,7 @@ function Home() {
           ? movies.map((movie) => <MovieCard movie={movie} key={movie.id} />)
           : !loading &&
             !error && (
-              <p className="text-center text-gray-400">No movies found.</p>
+              <p className="flex items-center justify-center text-gray-400">No movies found.</p>
             )}
       </div>
       <Footer />
