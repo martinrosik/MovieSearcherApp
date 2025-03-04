@@ -10,5 +10,6 @@ export const getPopularMovies = async () => {
 
 export const searchMovies = async (query) => {
   const response = await axios.get(`${BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}`);
-  return response.data.results;
+  const searchedMoviesSorted = response.data.results.sort((a, b) => b.popularity - a.popularity);
+  return searchedMoviesSorted;
 };
