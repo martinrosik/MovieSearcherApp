@@ -3,6 +3,7 @@ import Searcher from "../components/Searcher";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MovieCard from "../components/MovieCard";
+import ScrollToTop from "../components/ScrollToTop";
 import { useEffect, useState } from "react";
 
 import { getPopularMovies } from "../services/api.js";
@@ -61,9 +62,12 @@ function Home() {
           ? movies.map((movie) => <MovieCard movie={movie} key={movie.id} />)
           : !loading &&
             !error && (
-              <p className="flex items-center justify-center text-gray-400">No movies found.</p>
+              <p className="flex items-center justify-center text-gray-400 text-2xl col-span-4 pr-10">
+                No movies found.
+              </p>
             )}
       </div>
+      <ScrollToTop />
       <Footer />
     </>
   );
