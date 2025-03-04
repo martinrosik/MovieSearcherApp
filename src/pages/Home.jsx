@@ -35,6 +35,7 @@ function Home() {
         movie={movies}
         setMovies={setMovies}
         setSearchDescription={setSearchDescription}
+        setError={setError}
       />
       {loading && (
         <p className="flex mt-4 text-sky-400 justify-center items-center">

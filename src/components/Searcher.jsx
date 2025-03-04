@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { searchMovies, getPopularMovies } from "../services/api.js";
 
-function Searcher({ setMovies, setSearchDescription }) {
+function Searcher({ setMovies, setSearchDescription,  setError }) {
   const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    if (!query.trim()) {
+      const fetchPopularMovies = async () => {
+        const popularMovies = await getPopularMovies();
+        setMovies(popularMovies);
+        setSearchDescription(true);
+      };
+      fetchPopularMovies();
+    }
+  }, [query, setMovies, setSearchDescription]);
 
   const handleSearch = async () => {
     try {
@@ -11,13 +22,9 @@ function Searcher({ setMovies, setSearchDescription }) {
         const searchedMovies = await searchMovies(query);
         setMovies(searchedMovies);
         setSearchDescription(false);
-      } else {
-        const popularMovies = await getPopularMovies();
-        setMovies(popularMovies);
-        setSearchDescription(true);
       }
     } catch (error) {
-      console.error("Error fetching movies:", error);
+      setError("Oops! Something went wrong while searching for movies. Please check your internet connection and try again. If the problem persists, try again later or contact support.");
     }
   };
 

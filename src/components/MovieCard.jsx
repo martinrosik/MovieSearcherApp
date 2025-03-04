@@ -6,7 +6,7 @@ function MovieCard({ movie }) {
   const [isHovered, setIsHovered] = useState(false);
   const [isLiked, setLiked] = useState(false);
 
-  const movieDate = movie.release_date.split('-');
+  const movieDate = movie.release_date.split("-");
 
   function setFavorite() {
     setLiked((prev) => !prev);
@@ -26,12 +26,12 @@ function MovieCard({ movie }) {
         (isLiked ? (
           <FaHeart
             onClick={setFavorite}
-            className="absolute bottom-36 right-10 m-5 text-2xl text-red-500 transition-all duration-300 transform hover:scale-110"
+            className="absolute bottom-36 right-10 m-5 text-2xl text-red-500 transition-all duration-300 transform hover:scale-110 shadow-lg"
           />
         ) : (
           <FaRegHeart
             onClick={setFavorite}
-            className="absolute bottom-36 right-10 m-5 text-2xl text-sky-400 transition-all duration-300 transform hover:scale-110"
+            className="absolute bottom-36 right-10 m-5 text-2xl text-sky-400 transition-all duration-300 transform hover:scale-110 shadowxs"
           />
         ))}
       <div className="text-sky-400 mt-3">
