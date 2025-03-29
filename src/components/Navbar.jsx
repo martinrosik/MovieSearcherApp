@@ -1,5 +1,7 @@
 import { Link, useLocation } from "react-router";
 import { BiSolidCameraMovie } from "react-icons/bi";
+import { FaUser } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 import { useEffect } from "react";
 import "/src/index.css";
 
@@ -16,7 +18,28 @@ function Navbar() {
 
   return (
     <div>
-      <nav className="flex justify-center gap-[800px] items-center bg-neutral-800 h-16">
+      <div className="flex justify-end gap-[500px] items-center">
+        <p className="text-white text-sm">
+          Watch movies and series online totally for free!
+        </p>
+        <ul className="flex flex-row gap-6 mr-[150px] p-1">
+          <Link
+            to="/login"
+            className="flex flex-row gap-2 justify-center items-center"
+          >
+            <FaUser className="text-sky-400" />
+            <p className="text-sky-400 hover:underline">Sign In</p>
+          </Link>
+          <Link
+            to="/register"
+            className="flex flex-row gap-2 justify-center items-center"
+          >
+            <FaPlus className="text-sky-400" />
+            <p className="text-sky-400 hover:underline">Sign up</p>
+          </Link>
+        </ul>
+      </div>
+      <nav className="flex flex-row justify-center gap-[600px] items-center bg-neutral-800 h-16">
         <div>
           <Link
             to="/"
@@ -35,10 +58,7 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <Link
-              className="hover:underline"
-              to="/favorites"
-            >
+            <Link className="hover:underline" to="/favorites">
               Favorites
             </Link>
           </li>

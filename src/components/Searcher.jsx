@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { searchMovies, getPopularMovies } from "../services/api.js";
 
-function Searcher({ setMovies, setSearchDescription,  setError }) {
+function Searcher({ setMovies, setSearchDescription, setError }) {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -24,7 +24,9 @@ function Searcher({ setMovies, setSearchDescription,  setError }) {
         setSearchDescription(false);
       }
     } catch (error) {
-      setError("Oops! Something went wrong while searching for movies. Please check your internet connection and try again. If the problem persists, try again later or contact support.");
+      setError(
+        "Oops! Something went wrong while searching for movies. Please check your internet connection and try again. If the problem persists, try again later or contact support."
+      );
     }
   };
 
