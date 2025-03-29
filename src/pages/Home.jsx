@@ -4,29 +4,57 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MovieCard from "../components/MovieCard";
 import ScrollToTop from "../components/ScrollToTop";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import { getPopularMovies } from "../services/api.js";
 
 function Home() {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [searchDescription, setSearchDescription] = useState(true);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const observerTarget = useRef(null);
 
   useEffect(() => {
-    const loadPopularMovies = async () => {
-      try {
-        const popularMovies = await getPopularMovies();
-        setMovies(popularMovies);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadPopularMovies();
+    loadPopularMovies(1);
   }, []);
+
+  useEffect(() => {
+    if (!observerTarget.current || page >= totalPages || loading) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          loadPopularMovies(page + 1);
+        }
+      },
+      { threshold: 1.0 }
+    );
+
+    observer.observe(observerTarget.current);
+
+    return () => observer.disconnect();
+  }, [page, totalPages, loading]);
+
+  const loadPopularMovies = async (nextPage) => {
+    if (loading) return;
+
+    setLoading(true);
+    try {
+      const { results, total_pages } = await getPopularMovies(nextPage);
+      setMovies((prevMovies) =>
+        Array.isArray(prevMovies) ? [...prevMovies, ...results] : [...results]
+      );
+      setTotalPages(total_pages);
+      setPage(nextPage);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -38,7 +66,7 @@ function Home() {
         setSearchDescription={setSearchDescription}
         setError={setError}
       />
-      {loading && (
+      {loading && movies.length === 0 && (
         <p className="flex mt-4 text-sky-400 justify-center items-center">
           Loading movies...
         </p>
@@ -67,6 +95,14 @@ function Home() {
               </p>
             )}
       </div>
+      <div ref={observerTarget} className="h-10"></div>
+
+      {loading && (
+        <p className="flex justify-center mt-5 text-sky-400">
+          Loading more movies...
+        </p>
+      )}
+
       <ScrollToTop />
       <Footer />
     </>
