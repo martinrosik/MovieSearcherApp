@@ -7,6 +7,7 @@ import { FavoritesProvider } from "./context/FavoritesContext";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import TermsOfUse from "./pages/TermsOfUse";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<SignIn />} />
           <Route path="/register" element={<SignUp />} />
           <Route path="/termsofuse" element={<TermsOfUse />} />
+          <Route path="/contact-us" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </FavoritesProvider>

@@ -5,7 +5,7 @@ function TermsOfUse() {
   return (
     <>
       <Navbar />
-      <div className="max-w-3xl mx-auto px-6 mt-12 py-12 bg-neutral-800 shadow-lg rounded-2xl">
+      <div className="max-w-3xl mx-auto px-6 mt-24 py-12 bg-neutral-800 rounded-2xl">
         <h1 className="text-3xl font-bold text-sky-400 mb-6 text-center">
           <strong>Terms and Policies</strong>
         </h1>
