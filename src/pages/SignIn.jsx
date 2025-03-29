@@ -94,7 +94,7 @@ function SignIn() {
           <Link to="/register" className="text-sm text-sky-400">
             Don't have an account yet?
           </Link>
-          <Link to="/register" className="text-sm text-white">
+          <Link to="/register" className="text-sm text-sky-200">
             Sign up here to get started!
           </Link>
         </div>

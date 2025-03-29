@@ -6,6 +6,7 @@ import SignUp from "./pages/SignUp";
 import { FavoritesProvider } from "./context/FavoritesContext";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
+import TermsOfUse from "./pages/TermsOfUse";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/login" element={<SignIn />} />
           <Route path="/register" element={<SignUp />} />
+          <Route path="/termsofuse" element={<TermsOfUse />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </FavoritesProvider>

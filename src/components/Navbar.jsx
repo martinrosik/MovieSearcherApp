@@ -19,7 +19,7 @@ function Navbar() {
   return (
     <div>
       <div className="flex justify-end gap-[500px] items-center">
-        <p className="text-white text-sm">
+        <p className="text-sky-200 text-sm">
           Watch movies and series online totally for free!
         </p>
         <ul className="flex flex-row gap-6 mr-[150px] p-1">

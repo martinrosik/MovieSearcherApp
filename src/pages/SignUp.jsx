@@ -104,7 +104,7 @@ function SignUp() {
           <a href="/login" className="text-sm text-sky-400">
             Already have an account?
           </a>
-          <Link to="/login" className="text-sm text-white">
+          <Link to="/login" className="text-sm text-sky-200">
             Sign in here!
           </Link>
         </div>
