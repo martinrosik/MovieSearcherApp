@@ -8,7 +8,7 @@ function SignUp() {
   const [agreeTerms, setAgreeTerms] = useState(false);
 
   useEffect(() => {
-    if (location.pathname === "/sign-up") {
+    if (location.pathname === "/register") {
       document.title = "Sign Up | Movie Searcher";
     }
   }, [location]);

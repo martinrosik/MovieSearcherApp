@@ -1,7 +1,16 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useLocation } from "react-router";
+import { useEffect } from "react";
 
 function TermsOfUse() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === "/termsofuse") {
+      document.title = "Terms & Policies | Movie Searcher";
+    }
+  }, [location]);
   return (
     <>
       <Navbar />
